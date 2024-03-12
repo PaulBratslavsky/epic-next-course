@@ -368,6 +368,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     singularName: 'home-page';
     pluralName: 'home-pages';
     displayName: 'Home Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -375,6 +376,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
+    blocks: Attribute.DynamicZone<['layout.hero-section']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
