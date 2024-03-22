@@ -74,5 +74,5 @@ export async function getGlobalPageMetadata() {
     fields: ["title", "description"]
   })
 
-  return await fetchData(url.href);
+  return
 }
