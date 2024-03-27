@@ -15,16 +15,22 @@ import {
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { ZodErrors } from "@/components/custom/ZodErrors";
 
 const INITIAL_STATE = {
-  data: "hello you wonderful people",
+  data: null,
+  zodErrors: null,
+  message: null,
 };
 
 export function SignupForm() {
-  const [formState, formAction] = useFormState(registerUserAction, INITIAL_STATE);
-  
+  const [formState, formAction] = useFormState(
+    registerUserAction,
+    INITIAL_STATE
+  );
+
   console.log(formState, "client");
-  
+
   return (
     <div className="w-full max-w-md">
       <form action={formAction}>
@@ -44,6 +50,7 @@ export function SignupForm() {
                 type="text"
                 placeholder="username"
               />
+              <ZodErrors error={formState?.zodErrors?.username} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -53,6 +60,7 @@ export function SignupForm() {
                 type="email"
                 placeholder="name@example.com"
               />
+              <ZodErrors error={formState?.zodErrors?.email} />
             </div>
 
             <div className="space-y-2">
@@ -63,10 +71,13 @@ export function SignupForm() {
                 type="password"
                 placeholder="password"
               />
+              <ZodErrors error={formState?.zodErrors?.password} />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
-            <button type="submit" className="w-full">Sign Up</button>
+            <button type="submit" className="w-full">
+              Sign Up
+            </button>
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">
