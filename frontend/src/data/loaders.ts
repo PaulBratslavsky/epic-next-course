@@ -26,6 +26,7 @@ async function fetchData(url: string) {
 }
 
 export async function getHomePageData() {
+  
   const url = new URL("/api/home-page", baseUrl);
 
   url.search = qs.stringify({
@@ -74,5 +75,5 @@ export async function getGlobalPageMetadata() {
     fields: ["title", "description"]
   })
 
-  return
+  return await fetchData(url.href);
 }

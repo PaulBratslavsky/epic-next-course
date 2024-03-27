@@ -22,7 +22,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const globalData = await getGlobalPageData();
-  console.log(globalData);
   return (
     <html lang="en">
       <body className={inter.className}>
