@@ -85,6 +85,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "summaries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::summary.summary",
+      "mappedBy": "user"
     }
   }
 }
